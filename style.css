@@ -1,0 +1,347 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+*, *:before, *:after {
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+ul,
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    color: #000;
+    margin:0;
+    padding:0;
+    font-size:100%;
+    text-decoration: none;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+h1 {
+	font-family: helvetica;
+}
+.assistive-text {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* BEGIN CUSTOM STYLES */
+
+/*
+font-family: 'Arvo', serif;
+font-family: 'Lato', sans-serif;
+*/
+/* HEADER */
+.site-header {
+    background: #000;
+    border-bottom: solid 1px #999;
+    display: block;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.nav-wrap {
+    margin: 0 auto;
+    width: 80%;
+}
+.nav-wrap:after {
+    clear: both;
+    content: " ";
+    display: block;
+}
+.site-header hgroup {
+    display: block;
+    float: left;
+    margin: 10px 0 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    width: 40%;
+}
+.site-title,
+.site-logo {
+    display: inline-block;
+    margin: 0;
+}
+.site-title {
+    font-family: "helvetica neu", helvetica, sans-serif;
+    font-size: 28px;
+    font-style: italic;
+    padding: 9px 3px 8px;
+    position: relative;
+    text-shadow: 1px 1px 0px #a5a5a5;
+    top: -10px;
+    z-index: 1;
+}
+.site-title a {
+    color: #fff;
+}
+.site-logo {
+    height: 45px;
+    width: 60px;
+}
+.site-logo g {
+    background-color: #fff;
+}
+
+.main-navigation {
+    display: block;
+    float: left;
+    margin: 25px 0 0;
+    padding: 0;
+    width: 50%;
+}
+.main-navigation .nav-menu {
+    text-align: center;
+}
+.main-navigation .menu-item {
+    display: inline-block;
+    font-family: "helvetica neu", helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    text-transform: uppercase;
+    width: 20%;
+}
+.main-navigation .menu-item a {
+    color: #fff;
+    display: block;
+    padding: 7px 0;
+    -webkit-transition: background-color 250ms ease-in, color 150ms ease-in;
+       -moz-transition: background-color 250ms ease-in, color 150ms ease-in;
+         -o-transition: background-color 250ms ease-in, color 150ms ease-in;
+            transition: background-color 250ms ease-in, color 150ms ease-in;
+}
+.main-navigation .menu-item a:hover {
+    background: #f5f5f5;
+    border-radius: 3px;
+    color: #666;
+}
+/* HEADER */
+
+
+
+
+/* FEED */
+.wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+    position: relative;
+    width: 90%;
+}
+.wrapper:after,
+.site-content:after,
+.site-content article:after,
+#lede:after {
+    clear: both;
+    content: " ";
+    display: block;
+}
+
+#lede {
+/*    background: #0f0;*/
+    width: 100%;
+}
+#feed {
+/*    background: #f00;*/
+    float: left;
+    width: 60%;
+}
+
+
+.site-content article {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+.site-content .article-wrap {
+    display: block;
+}
+
+.site-content article img {
+    float: left;
+    height: auto;
+    margin-right: 20px;
+    width: 150px;
+}
+.site-content article .category {
+    border-right: 1px solid #000;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    margin-right: 10px;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+.site-content article time {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+.site-content article .entry-title {
+    font-family: 'Arvo', serif;
+    margin: 10px 0 8px;
+}
+.site-content article .entry-content p {
+    margin-bottom: 1em;
+}
+
+
+
+
+article.tag-teaser .article-wrap {
+    background: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+article.tag-teaser .category,
+article.tag-teaser time {
+    display: none;
+}
+article.tag-teaser a,
+article.tag-teaser p {
+    color: #fff;
+}
+article.tag-teaser .entry-title {
+    font-size: 24px;
+}
+article.tag-teaser .entry-content {
+    font-size: 18px;
+}
+article.tag-teaser .entry-content p {
+    margin-bottom: 0;
+}
+
+
+
+
+article.tag-feature img {
+    display: block;
+    float: none;
+    margin: 0 auto 10px;
+}
+
+
+
+/* BASIC */
+.basic-layout #lede article[data-index="0"] {
+    float: left;
+    width: 60%;
+}
+.basic-layout #lede article[data-index="1"],
+.basic-layout #lede article[data-index="2"] {
+    clear: right;
+    float: right;
+    width: 35%;
+}
+.widget-area {
+    border-left: 1px solid #ccc;
+/*    background: #00f;*/
+    float: right;
+    padding-left: 20px;
+    width: 35%;
+}
+.widget-area aside {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 30px;
+    padding-bottom: 30px;
+}
+/* BASIC */
+
+
+/* FEED */
+
+
+/* FOOTER */
+footer {
+    clear: both;
+}
+
+
