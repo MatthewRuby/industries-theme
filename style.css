@@ -119,18 +119,24 @@ h1 {
 /*
 font-family: 'Arvo', serif;
 font-family: 'Lato', sans-serif;
+
+font-family: 'PT Sans', sans-serif;
+font-family: 'PT Sans Narrow', sans-serif;
+font-family: 'PT Sans Caption', sans-serif;
 */
 /* HEADER */
 .site-header {
-    background: #000;
-    border-bottom: solid 1px #999;
+/*    background: #000;*/
+/*    border-bottom: solid 1px #999;*/
     display: block;
     margin-bottom: 40px;
     width: 100%;
 }
 .nav-wrap {
     margin: 0 auto;
-    width: 80%;
+    max-width: 1280px;
+    position: relative;
+    width: 90%;
 }
 .nav-wrap:after {
     clear: both;
@@ -143,33 +149,35 @@ font-family: 'Lato', sans-serif;
     margin: 10px 0 0;
     padding: 0;
     position: relative;
-    text-align: center;
-    width: 40%;
+    width: 50%;
 }
 .site-title,
 .site-logo {
-    display: inline-block;
+    display: block;
+    float: left;
     margin: 0;
 }
 .site-title {
     font-family: "helvetica neu", helvetica, sans-serif;
-    font-size: 28px;
+    font-size: 42px;
     font-style: italic;
+    font-weight: 800;
     padding: 9px 3px 8px;
     position: relative;
-    text-shadow: 1px 1px 0px #a5a5a5;
+    text-shadow: 1px 1px 0px #62449a;
     top: -10px;
     z-index: 1;
-}
-.site-title a {
-    color: #fff;
 }
 .site-logo {
     height: 45px;
     width: 60px;
 }
-.site-logo g {
-    background-color: #fff;
+.site-title a {
+    color: #00f900;
+    display: block;
+}
+.site-logo a {
+    display: block;
 }
 
 .main-navigation {
@@ -192,7 +200,7 @@ font-family: 'Lato', sans-serif;
     width: 20%;
 }
 .main-navigation .menu-item a {
-    color: #fff;
+    color: #62449a;
     display: block;
     padding: 7px 0;
     -webkit-transition: background-color 250ms ease-in, color 150ms ease-in;
@@ -257,6 +265,7 @@ font-family: 'Lato', sans-serif;
     display: inline-block;
     font-family: 'Lato', sans-serif;
     font-size: 12px;
+    font-weight: 300;
     margin-right: 10px;
     padding-right: 10px;
     text-transform: uppercase;
@@ -264,12 +273,20 @@ font-family: 'Lato', sans-serif;
 .site-content article time {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
+    font-weight: 300;
 }
 .site-content article .entry-title {
-    font-family: 'Arvo', serif;
-    margin: 10px 0 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    margin: 5px 0 12px;
 }
 .site-content article .entry-content p {
+    color: #444;
+    font-family: georgia, serif;
+    font-size: 14px;
+    line-height: 20px;
     margin-bottom: 1em;
 }
 
@@ -306,6 +323,11 @@ article.tag-feature img {
     display: block;
     float: none;
     margin: 0 auto 10px;
+    width: 100%;
+}
+.site-content article.tag-feature .entry-title {
+    font-size: 36px;
+    font-weight: 900;
 }
 
 
