@@ -28,11 +28,25 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
-<!-- <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
- -->
-<!-- <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:400,700|PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'> -->
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bevan|Open+Sans:800italic,400,300,800' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
+<script>
+  // window.fbAsyncInit = function() {
+  //   FB.init({
+  //     appId      : '{your-app-id}',
+  //     xfbml      : true,
+  //     version    : 'v2.0'
+  //   });
+  // };
+
+  // (function(d, s, id){
+  //    var js, fjs = d.getElementsByTagName(s)[0];
+  //    if (d.getElementById(id)) {return;}
+  //    js = d.createElement(s); js.id = id;
+  //    js.src = "//connect.facebook.net/en_US/sdk.js";
+  //    fjs.parentNode.insertBefore(js, fjs);
+  //  }(document, 'script', 'facebook-jssdk'));
+</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -47,12 +61,12 @@
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 86.246 56.133" enable-background="new 0 0 86.246 56.133" xml:space="preserve">
 							<g>
 								<g>
-									<g opacity="0.75">
+									<g>
 										<path fill="#00f900" d="M61.686,9.482c-5.17,0.001-10.362,1.823-14.728,4.821c-2.791-2.999-7.032-4.821-12.204-4.821
 											C23.58,9.483,12.288,17.994,9.536,28.49c-2.753,10.496,4.076,19.002,15.251,19c5.17,0,10.365-1.822,14.728-4.82
 											c2.79,2.998,7.031,4.822,12.203,4.82c11.177,0,22.467-8.51,25.22-19.006C79.689,17.989,72.863,9.482,61.686,9.482z"/>
 									</g>
-									<path fill="#62449a" d="M34.564,5.778c4.826,0,9.202,1.373,12.628,3.915c4.507-2.537,9.494-3.913,14.302-3.914
+									<path fill="#FFFFFF" d="M34.564,5.778c4.826,0,9.202,1.373,12.628,3.915c4.507-2.537,9.494-3.913,14.302-3.914
 										c3.297,0,6.365,0.626,9.115,1.861c2.766,1.243,5.08,3.033,6.881,5.323c1.77,2.25,2.932,4.846,3.457,7.715
 										c0.524,2.861,0.385,5.863-0.418,8.919C79,35.426,75.195,40.87,69.816,44.922c-5.365,4.045-11.725,6.272-17.906,6.273
 										c-4.826,0-9.203-1.373-12.627-3.914c-4.508,2.537-9.495,3.913-14.303,3.913c-3.297,0-6.363-0.626-9.114-1.86

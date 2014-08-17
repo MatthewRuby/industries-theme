@@ -19,5 +19,7 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 </body>
 </html>
