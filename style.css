@@ -353,34 +353,6 @@ article .entry-content {
 
 
 
-/* Aside Styles */
-article.format-aside .article-wrap {
-    background: #00f900;
-    padding: 20px 0;
-    text-align: center;
-}
-article.format-aside .category,
-article.format-aside time {
-    display: none;
-}
-article.format-aside a,
-article.format-aside p {
-    color: #fff;
-}
-article.format-aside .entry-title {
-    font-size: 36px;
-}
-article.format-aside .entry-content {
-    color: ;
-    font-size: 20px;
-    font-weight: bold;
-}
-article.format-aside .entry-content p {
-    margin-bottom: 0;
-}
-
-
-
 /* BASIC */
 .widget-area {
     border-left: 1px solid #ccc;
@@ -409,3 +381,6 @@ footer {
 }
 
 
+@media (max-width: 600px) {
+
+}

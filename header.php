@@ -31,21 +31,21 @@
 <link href='http://fonts.googleapis.com/css?family=Bevan|Open+Sans:800italic,400,300,800' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
 <script>
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId      : '{your-app-id}',
-  //     xfbml      : true,
-  //     version    : 'v2.0'
-  //   });
-  // };
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '779346445442173',
+      xfbml      : true,
+      version    : 'v2.0'
+    });
+  };
 
-  // (function(d, s, id){
-  //    var js, fjs = d.getElementsByTagName(s)[0];
-  //    if (d.getElementById(id)) {return;}
-  //    js = d.createElement(s); js.id = id;
-  //    js.src = "//connect.facebook.net/en_US/sdk.js";
-  //    fjs.parentNode.insertBefore(js, fjs);
-  //  }(document, 'script', 'facebook-jssdk'));
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>
 </head>
 
