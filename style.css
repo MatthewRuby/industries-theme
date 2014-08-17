@@ -374,6 +374,7 @@ article .share-tool.facebook {
 
 #lede article.article-0.super-lede {
     float: none;
+    margin-top: 0;
     width: 100%;
 }
 #lede article.article-0.super-lede header,
