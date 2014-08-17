@@ -16,9 +16,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="site-content basic-layout">
-<!-- 		<div id="content" role="main"> -->
-
+	<div id="content" class="site-content basic-layout" role="main">
 
 		<?php if ( have_posts() ) : ?>
 			<?php $index = 0; $end = 3; ?>
@@ -89,8 +87,14 @@ get_header(); ?>
 							<?php if( $index < $end ) : ?>
 								<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
 							<?php endif; ?>
-							<!-- <a href="https://twitter.com/intent/tweet?text=<?php echo the_title(); ?>&url=<?php echo urlencode(get_permalink()); ?>">Tweet</a>
- -->
+							<ul class="feed-share-tools">
+								<li class="share-tool facebook">
+									<a href="#">Facebook</a>
+								</li>
+								<li class="share-tool twitter">
+									<a href="https://twitter.com/intent/tweet?text=<?php echo the_title(); ?>&url=<?php echo urlencode(get_permalink()); ?>">Twitter</a>
+								</li>
+							</ul>
 
 						</footer><!-- .entry-meta -->
 
@@ -108,7 +112,6 @@ get_header(); ?>
 
 		<?php get_sidebar(); ?>
 
-		<!-- </div> --><!-- #content -->
 	</div><!-- #primary -->
 
 
