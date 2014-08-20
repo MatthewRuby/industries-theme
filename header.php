@@ -29,11 +29,14 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Bevan|Open+Sans:800italic,400,300,800' rel='stylesheet' type='text/css'>
+
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700|Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
 <?php wp_head(); ?>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '779346445442173',
+      appId      : '903936332953317',
       xfbml      : true,
       version    : 'v2.0'
     });

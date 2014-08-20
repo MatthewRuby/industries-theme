@@ -122,6 +122,14 @@ h1 {
 font-family: 'Open Sans', sans-serif;
 font-family: 'Bevan', serif;
 
+
+
+font-family: 'Raleway', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif;
+
+
+
 color: #62449a; Purple
 color: #00f900; Green
 
@@ -205,6 +213,7 @@ color: #00f900; Green
          -o-transition: border 250ms ease-out;
             transition: border 250ms ease-out;
 }
+.main-navigation .current_page_item a,
 .main-navigation .menu-item a:hover {
     border-bottom: solid 3px #fff;
     color: #00f900;
@@ -385,6 +394,22 @@ article .share-tool.facebook {
 }
 
 
+
+iframe {
+    display: block;
+    margin: 40px auto;
+}
+.page-id-10 .entry-header {
+    display: none;
+}
+.page-id-10 .entry-header {
+    display: none;
+}
+.page-id-10 .entry-content > p {
+    font-family: 'Bevan', serif;
+    font-size: 48px;
+    text-align: center;
+}
 
 
 /* BASIC
