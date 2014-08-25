@@ -1,29 +1,24 @@
-<?php
-/**
- * The template for displaying 404 pages (Not Found)
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+	<main role="main">
+		<!-- section -->
+		<section>
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+			<!-- article -->
+			<article id="post-404">
 
-			<article id="post-0" class="post error404 no-results not-found">
-				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'This is somewhat embarrassing, isn&rsquo;t it?', 'twentytwelve' ); ?></h1>
-				</header>
+				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
+				<h2>
+					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
+				</h2>
 
-				<div class="entry-content">
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwelve' ); ?></p>
-					<?php get_search_form(); ?>
-				</div><!-- .entry-content -->
-			</article><!-- #post-0 -->
+			</article>
+			<!-- /article -->
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		</section>
+		<!-- /section -->
+	</main>
+
+<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

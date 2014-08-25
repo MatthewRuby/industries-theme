@@ -1,25 +1,25 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains footer content and the closing of the #main and #page div elements.
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
-?>
-	</div><!-- #main .wrapper -->
-	<footer id="colophon" role="contentinfo">
-		<div class="site-info">
-			<?php do_action( 'twentytwelve_credits' ); ?>
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+			<!-- footer -->
+			<footer class="site-footer" role="contentinfo">
+                <nav class="nav">
+					<?php html5blank_nav(); ?>
+				</nav>
+			</footer>
+			<!-- /footer -->
 
-<?php wp_footer(); ?>
+		</div>
+		<!-- /wrapper -->
 
-<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-</body>
+		<?php wp_footer(); ?>
+
+		<!-- analytics -->
+		<script>
+		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
+		ga('send', 'pageview');
+		</script>
+
+	</body>
 </html>

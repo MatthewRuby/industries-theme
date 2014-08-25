@@ -1,33 +1,32 @@
-<?php
-/**
- * The Template for displaying all single posts
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
+<?php get_header(); ?>
 
-get_header(); ?>
+	<main id="main" role="main">
 
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
+	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part( 'content', get_post_format() ); ?>
 
-				<?php get_template_part( 'content', get_post_format() ); ?>
+	<?php endwhile; ?>
 
-				<nav class="nav-single">
-					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
-				</nav><!-- .nav-single -->
+	<?php else: ?>
 
-				<?php comments_template( '', true ); ?>
+		<article>
+			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+		</article>
 
-			<?php endwhile; // end of the loop. ?>
+	<?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		<nav class="nav-footer">
+			<div class="nav-previous">
+				<b>Previous Post</b>
+				<h3><?php previous_post_link('%link'); ?></h3>
+			</div>
+			<div class="nav-next">
+				<b>Next Post</b>
+				<h3><?php next_post_link('%link'); ?></h3>
+			</div>
+		</nav>
 
-<?php get_sidebar(); ?>
+	</main>
+
 <?php get_footer(); ?>
