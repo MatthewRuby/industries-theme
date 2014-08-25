@@ -1,20 +1,23 @@
 <?php $index = 0; $end = 3; ?>
 
-	<section id="lede" class="clear"><!--  OPEN #lede -->
 	<?php if (have_posts()): while (have_posts()) : the_post(); $extraClass = "article-".$index; ?>
+
+		<?php if( $index == 0):
+			if(is_sticky() && get_post_format( $post_id ) == 'image' ) :
+				$end = 1;
+				$extraClass .= ' super-lede';
+			?>
+				<section id="lede" class=" wide clear">
+			<?php else: ?>
+				<section id="lede" class="clear">
+			<?php endif; ?>
+		<?php endif; ?>
 
 		<?php if ( $index == $end ) : ?>
 			</section><!--  CLOSE LEDE -->
 			<div class="feed-wrap clear"><!--  OPEN .feed-wrap -->
 				<section id="feed"><!--  OPEN #feed -->
 		<?php endif; ?>
-
-		<?php
-			if( is_sticky() && get_post_format( $post_id ) == 'image' ) :
-				$end = 1;
-				$extraClass .= ' super-lede';
-			endif;
-		?>
 
 
 		<article id="post-<?php the_ID(); ?>" class="<?php foreach(get_post_class(array($extraClass), the_ID() ) as $c){ echo $c . " "; }; ?>">
@@ -33,18 +36,18 @@
 				<?php endif; ?>
 				<header class="entry-header">
 					<?php if ( is_single() ) : ?>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<h2 class="entry-title"><?php the_title(); ?></h2>
 						<?php else : ?>
 
 						<?php if( $index < $end ) : ?>
-							<h1 class="entry-title">
+							<h2 class="entry-title">
 								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-							</h1>
+							</h2>
 						<?php else: ?>
 								<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
-								<h1 class="entry-title">
+								<h2 class="entry-title">
 									<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-								</h1>
+								</h2>
 						<?php endif; ?>
 
 

@@ -1,5 +1,5 @@
 /*
-	Theme Name: HTML5 Blank
+	Theme Name: AI THEME
 	Theme URI: http://html5blank.com
 	Description: HTML5 Blank WordPress Theme
 	Version: 1.4.3
@@ -400,9 +400,8 @@ color: #00f900; Green
     content: " ";
     display: block;
 }
-#lede {
-    width: 100%;
-}
+
+#lede,
 .feed-wrap,
 .single #main,
 .site-footer {
@@ -410,6 +409,9 @@ color: #00f900; Green
     max-width: 1280px;
     position: relative;
     width: 90%;
+}
+#lede.wide {
+    width: 100%;
 }
 #feed {
     border-right: 1px solid #ccc;
@@ -716,7 +718,55 @@ iframe {
 }
 
 
+.slideshow {
+/*    overflow: hidden;
+    position: relative;
+    width: 100%;*/
+}
 
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap .slide {
+  float:left;
+  width:100%;
+  position: relative;
+  text-align: center;
+}
+.swipe-wrap .slide img {
+    display: block;
+    margin: 0 auto;
+}
+.thumbnails {
+    overflow: hidden;
+    width: 100%;
+}
+.thumb {
+    float: left;
+    vertical-align: center;
+}
+/*.ss-nav .prev,
+.ss-nav .next {
+    background: #f00;
+    border: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 75px;
+    z-index: 1000000;
+}
+.ss-nav .prev {
+    left: 0;
+}
+.ss-nav .next {
+    right: 0;
+}*/
 
 @media (max-width: 600px) {
     .single article .feature-image {

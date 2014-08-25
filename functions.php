@@ -336,6 +336,70 @@ function html5blankcomments($comment, $args, $depth)
 	<?php endif; ?>
 <?php }
 
+
+function my_post_gallery($output, $attr) {
+    global $post;
+
+    if (isset($attr['orderby'])) {
+        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+        if (!$attr['orderby'])
+            unset($attr['orderby']);
+    }
+
+    extract(shortcode_atts(array(
+        'order' => 'ASC',
+        'orderby' => 'menu_order ID',
+        'id' => $post->ID,
+        'itemtag' => 'dl',
+        'icontag' => 'dt',
+        'captiontag' => 'dd',
+        'columns' => 3,
+        'size' => 'thumbnail',
+        'include' => '',
+        'exclude' => ''
+    ), $attr));
+
+    $id = intval($id);
+    if ('RAND' == $order) $orderby = 'none';
+
+    if (!empty($include)) {
+        $include = preg_replace('/[^0-9,]+/', '', $include);
+        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+        $attachments = array();
+        foreach ($_attachments as $key => $val) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    }
+
+    if (empty($attachments)) return '';
+
+    // Here's your actual output, you may customize it to your need
+    $output = "<div class=\"slideshow clear\">\n";
+
+    $output .= "<div class=\"slider swipe\">\n";
+    $output .= "<ul class=\"swipe-wrap\">\n";
+    foreach ($attachments as $id => $attachment) {
+        $img = wp_get_attachment_image_src($id, 'full');
+        $output .= "<li class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></li>";
+    }
+    $output .= "</ul>\n";
+    $output .= "</div>\n";
+
+    $output .= "<div class=\"thumbnails\">\n";
+    $output .= "<ul class=\"thumb-wrap\">\n";
+    foreach ($attachments as $id => $attachment) {
+        $thumb = wp_get_attachment_image_src($id, 'small');
+        $output .= "<li class=\"thumb\"><img src=\"{$thumb[0]}\" alt=\"\" /></li>";
+    }
+    $output .= "</ul>\n";
+    $output .= "</div>\n";
+    $output .= "<nav class=\"ss-nav\"><button class=\"prev\">back</button><button class=\"next\">forward</button></nav>\n";
+    $output .= "</div>\n";
+
+    return $output;
+}
+
 /*------------------------------------*\
 	Actions + Filters + ShortCodes
 \*------------------------------------*/
@@ -381,6 +445,8 @@ add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
+
+add_filter('post_gallery', 'my_post_gallery', 10, 2);
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
