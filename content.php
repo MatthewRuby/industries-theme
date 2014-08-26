@@ -1,9 +1,16 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
     <!-- post title -->
-    <h1>
-        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-    </h1>
+    <?php if(is_single($post): ?>
+        <h1>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+        </h1>
+    <?php else: ?>
+        <h2>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+        </h2>
+    <?php endif; ?>
+
 
     <!-- post thumbnail -->
     <?php if ( has_post_thumbnail()) : ?>

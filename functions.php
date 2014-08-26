@@ -93,11 +93,11 @@ function html5blank_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-    	wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
-        wp_enqueue_script('conditionizr'); // Enqueue it!
+    	// wp_register_script('conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0'); // Conditionizr
+     //    wp_enqueue_script('conditionizr'); // Enqueue it!
 
-        wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
-        wp_enqueue_script('modernizr'); // Enqueue it!
+     //    wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
+     //    wp_enqueue_script('modernizr'); // Enqueue it!
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -378,23 +378,23 @@ function my_post_gallery($output, $attr) {
     $output = "<div class=\"slideshow clear\">\n";
 
     $output .= "<div class=\"slider swipe\">\n";
-    $output .= "<ul class=\"swipe-wrap\">\n";
+    // $output .= "<ul class=\"swipe-wrap\">\n";
     foreach ($attachments as $id => $attachment) {
         $img = wp_get_attachment_image_src($id, 'full');
-        $output .= "<li class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></li>";
+        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
     }
-    $output .= "</ul>\n";
+    // $output .= "</ul>\n";
     $output .= "</div>\n";
 
-    $output .= "<div class=\"thumbnails\">\n";
-    $output .= "<ul class=\"thumb-wrap\">\n";
-    foreach ($attachments as $id => $attachment) {
-        $thumb = wp_get_attachment_image_src($id, 'small');
-        $output .= "<li class=\"thumb\"><img src=\"{$thumb[0]}\" alt=\"\" /></li>";
-    }
-    $output .= "</ul>\n";
-    $output .= "</div>\n";
-    $output .= "<nav class=\"ss-nav\"><button class=\"prev\">back</button><button class=\"next\">forward</button></nav>\n";
+    // $output .= "<div class=\"thumbnails\">\n";
+    // $output .= "<ul class=\"thumb-wrap\">\n";
+    // foreach ($attachments as $id => $attachment) {
+    //     $thumb = wp_get_attachment_image_src($id, 'small');
+    //     $output .= "<li class=\"thumb\"><img src=\"{$thumb[0]}\" alt=\"\" /></li>";
+    // }
+    // $output .= "</ul>\n";
+    // $output .= "</div>\n";
+    //$output .= "<nav class=\"ss-nav\"><button class=\"prev\">back</button><button class=\"next\">forward</button></nav>\n";
     $output .= "</div>\n";
 
     return $output;
@@ -514,6 +514,20 @@ function html5_shortcode_demo($atts, $content = null)
 function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
 {
     return '<h2>' . $content . '</h2>';
+}
+
+function  strip_shortcode_gallery( $content ) {
+    preg_match_all( '/'. get_shortcode_regex() .'/s', $content, $matches, PREG_SET_ORDER );
+    if ( ! empty( $matches ) ) {
+        foreach ( $matches as $shortcode ) {
+            if ( 'gallery' === $shortcode[2] ) {
+                $pos = strpos( $content, $shortcode[0] );
+                if ($pos !== false)
+                    return substr_replace( $content, '', $pos, strlen($shortcode[0]) );
+            }
+        }
+    }
+    return $content;
 }
 
 ?>

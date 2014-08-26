@@ -1,13 +1,23 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-    <!-- post title -->
-    <h1 class="entry-title">
-
-        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-    </h1>
-    <!-- /post title -->
     <div class="entry-content">
-        <?php the_content(); // Dynamic Content ?>
+    <?php
+
+        $gallery = get_post_gallery();
+        echo $gallery;
+    ?>
+        <h1 class="entry-title">
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+        </h1>
+
+        <div class="body-text">
+    <?php
+        $content = strip_shortcode_gallery( get_the_content() );
+        $content = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $content ) );
+        echo $content;
+
+    ?>
+        </div>
     </div>
 
 
