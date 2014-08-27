@@ -1,10 +1,10 @@
 /*
 	Theme Name: AI THEME
-	Theme URI: http://html5blank.com
-	Description: HTML5 Blank WordPress Theme
-	Version: 1.4.3
-	Author: Todd Motto (@toddmotto)
-	Author URI: http://toddmotto.com
+	Theme URI: assindustries.com
+	Description: Ass Site
+	Version: 1.0
+	Author: Matt Ruby
+	Author URI: http://matt-ruby.com
 	Tags: Blank, HTML5, CSS3
 
 	License: MIT
@@ -392,6 +392,7 @@ color: #00f900; Green
 /* FEED */
 .wrapper {
     margin: 0 auto;
+    overflow: hidden;
     width: 100%;
 }
 .wrapper:after,
@@ -405,7 +406,7 @@ color: #00f900; Green
 
 #lede,
 .feed-wrap,
-.single #main,
+/*.single #main,*/
 .site-footer {
     margin: 0 auto;
     max-width: 1280px;
@@ -437,10 +438,15 @@ article {
     overflow: hidden;
     padding-bottom: 30px;
 }
+.single article {
+    border: 0;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
 .article-wrap {
     display: block;
 }
-
 article .feature-image {
     float: left;
     height: auto;
@@ -454,15 +460,25 @@ article.format-image .feature-image {
     width: 100%;
 }
 .single article .feature-image {
-    float: left;
-    width: 50%;
+    float: none;
+    margin: 20px auto 0;
+    width: auto;
+    text-align: center;
 }
+
 .single article.format-image .feature-image {
     float: none;
+    margin: 0;
     width: 100%;
 }
 article .feature-image img {
     height: auto;
+    width: 100%;
+}
+.single article .feature-image img {
+    width: auto;
+}
+.single article.format-image  .feature-image img {
     width: 100%;
 }
 article .category {
@@ -490,12 +506,16 @@ article .entry-title {
     font-family: 'chunkfiveroman', georgia, serif;
     font-size: 32px;
     letter-spacing: 0.01em;
+    line-height: 1;
     margin: 5px 0 12px;
     width: 90%;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
     font-smoothing: antialiased;
+}
+.single article .entry-title.no-image {
+    font-size: 42px;
 }
 article h1 a,
 article .entry-title a {
@@ -512,7 +532,8 @@ article .entry-content {
 .single article .entry-title,
 .single article .entry-content,
 .single article .entry-meta,
-.single article.format-gallery .body-text {
+.single article.format-gallery .body-text,
+.single .nav-footer {
     max-width: 600px;
     margin: 20px auto;
     width: 80%;
@@ -534,6 +555,8 @@ article .entry-meta time {
     border: 0;
     margin-right: 20px;
 }
+
+/* SHARE TOOLS */
 article .feed-share-tools {
     display: inline-block;
 }
@@ -556,16 +579,13 @@ article .share-tool.facebook {
     background-size: auto 100%;
 }
 
-.single article {
-    border: 0;
-    margin: 40px auto;
-}
-
-
+/*
 .nav-footer {
-    display: block;
-    width: 100%;
-}
+    margin: 0 auto;
+    max-width: 1280px;
+    position: relative;
+    width: 90%;
+}*/
 .nav-previous,
 .nav-next {
     display: block;
@@ -635,7 +655,7 @@ article .share-tool.facebook {
     display: block;
     float: left;
     margin-right: 20px;
-    height: 180px;
+/*    height: 180px;*/
     width: auto;
 }
 #lede article.article-1 .entry-content,
@@ -755,7 +775,94 @@ iframe {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
+    /* MOBILE NAV */
+    .site-header {
+        position: relative;
+    }
+    .nav-wrap {
+        position: static;
+        width: 95%;
+    }
+    .site-logo {
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 5px;
+        width: 50px;
+    }
+    .site-title {
+        font-size: 23px;
+        margin-top: 10px;
+    }
+    .nav {
+        background: url(img/burger-white.png) no-repeat center center;
+        background-size: auto 65%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+    }
+    .nav ul {
+        background: #000;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: -120px;
+        top: 100%;
+        width: 120px;
+        z-index: 999999;
+        -webkit-transition: right 150ms ease-out;
+           -moz-transition: right 150ms ease-out;
+             -o-transition: right 150ms ease-out;
+                transition: right 150ms ease-out;
+    }
+    .nav.open ul {
+        right: 0;
+    }
+    .nav .menu-item {
+        border-bottom: solid 1px #444;
+        margin: 0;
+        padding: 5px 20px;
+        text-align: left;
+        width: 100%;
+    }
+    .nav .current_page_item a,
+    .nav .menu-item a:hover {
+        border-bottom: 3px solid transparent;
+        color: #ccc;
+    }
+    /* END MOBILE NAV */
+
+    #lede,
+    .feed-wrap,
+    .single #main,
+    .site-footer {
+        width: 100%;
+    }
+
+    article .entry-content,
+    article .entry-meta {
+        margin: 0 auto;
+        width: 85%;
+    }
+
+    #lede article,
+    #lede article.article-0,
+    #lede article.article-1,
+    #lede article.article-2 {
+        border-bottom: solid 1px #ccc;
+        float: none;
+        width: 100%;
+    }
+    #lede article.article-0 {
+        margin-top: 0;
+    }
+    .feed-wrap {
+        width: 100%;
+    }
     #feed {
         border: 0;
         float: none;
@@ -767,9 +874,29 @@ iframe {
         padding-left: 0;
         width: 100%;
     }
-    article {
-
+    article h1,
+    article .entry-title {
+        font-size: 24px;
     }
+    .single article {
+        margin-top: 0;
+    }
+    .single article .entry-title,
+    .single article .entry-content,
+    .single article .entry-meta,
+    .single article.format-gallery .body-text {
+        margin: 20px auto;
+        width: 85%;
+    }
+    .single .nav-footer {
+        margin: 0 auto;
+        width: 85%;
+    }
+    .nav-previous,
+    .nav-next {
+        width: 48%;
+    }
+
 }
 
 

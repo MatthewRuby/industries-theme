@@ -5,11 +5,31 @@ var swipes = [];
 
 		'use strict';
 
-        $('.slideshow .slider').slick({
-            centerMode: true,
-            centerPadding: '120px',
-            slidesToShow: 1
-        });
+        if( $(window).width() < 720 ) {
+            $('.nav').on('click', function(){
+                if( $(this).attr('role') === 'navigation') {
+                    $(this).toggleClass('open');
+                }
+            });
+
+            $('.slideshow .slider').slick({
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+            });
+
+        } else {
+
+            $('.slideshow .slider').slick({
+                centerMode: true,
+                centerPadding: '120px',
+                slidesToShow: 1
+            });
+
+        }
+
+
+
 
 	});
 
