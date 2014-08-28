@@ -522,7 +522,8 @@ article .entry-title a {
     color: #000;
 }
 
-article .entry-content {
+article .entry-content,
+.page article p {
     color: #444;
     font-family: "roboto_slabregular", georgia, serif;
     font-size: 16px;
@@ -533,10 +534,17 @@ article .entry-content {
 .single article .entry-content,
 .single article .entry-meta,
 .single article.format-gallery .body-text,
-.single .nav-footer {
+.single .nav-footer,
+/*.page article h1,*/
+.page article p {
     max-width: 600px;
     margin: 20px auto;
     width: 80%;
+}
+#feed .entry-content .entry-header,
+.single .entry-header .category,
+.single .entry-header .entry-date {
+    display: none;
 }
 .single-format-gallery #main,
 .single article.format-gallery {
@@ -579,13 +587,13 @@ article .share-tool.facebook {
     background-size: auto 100%;
 }
 
-/*
+
 .nav-footer {
     margin: 0 auto;
     max-width: 1280px;
     position: relative;
     width: 90%;
-}*/
+}
 .nav-previous,
 .nav-next {
     display: block;
@@ -655,7 +663,6 @@ article .share-tool.facebook {
     display: block;
     float: left;
     margin-right: 20px;
-/*    height: 180px;*/
     width: auto;
 }
 #lede article.article-1 .entry-content,
@@ -674,7 +681,8 @@ article .share-tool.facebook {
     width: 100%;
 }
 #lede article.article-0.super-lede header,
-#lede article.article-0.super-lede .entry-content,
+/*#lede article.article-0.super-lede .entry-title,*/
+#lede article.article-0.super-lede .entry-content p,
 #lede article.article-0.super-lede .entry-meta {
     margin: 0 auto;
     max-width: 640px;
@@ -683,7 +691,7 @@ article .share-tool.facebook {
 #lede article.article-0.super-lede .entry-title {
     font-size: 48px;
     line-height: 1;
-    margin-top: -60px;
+/*    margin-top: -60px;*/
     text-shadow: 1px 1px 0px #fff;
 }
 
@@ -692,17 +700,33 @@ iframe {
     display: block;
     margin: 40px auto;
 }
-.page-id-10 .entry-header {
-    display: none;
+
+
+.page article img {
+    display: block;
+    height: auto;
+    margin: 20px auto;
+    width: 90%;
 }
-.page-id-10 .entry-header {
-    display: none;
-}
+
+.team article p,
 .page-id-10 .entry-content > p {
+    color: #000;
     font-family: 'chunkfiveroman', georgia, serif;
     font-size: 48px;
+    line-height: 1;
+    margin: 0 auto;
     text-align: center;
+  text-shadow:
+   -1px -1px 0 #ccc,
+    1px -1px 0 #ccc,
+    -1px 1px 0 #ccc,
+     1px 1px 0 #ccc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
+
 
 
 
@@ -715,6 +739,9 @@ iframe {
     font-family: 'montserratbold', verdana, sans-serif;
     font-size: 12px;
     text-transform: uppercase;
+}
+.wpinstagram-widget-item {
+    margin-bottom: 20px;
 }
 
 

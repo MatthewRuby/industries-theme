@@ -6,10 +6,6 @@
         $gallery = get_post_gallery();
         echo $gallery;
     ?>
-        <h1 class="entry-title">
-            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-        </h1>
-
         <div class="body-text">
     <?php
         $content = strip_shortcode_gallery( get_the_content() );

@@ -374,28 +374,20 @@ function my_post_gallery($output, $attr) {
 
     if (empty($attachments)) return '';
 
-    // Here's your actual output, you may customize it to your need
-    $output = "<div class=\"slideshow clear\">\n";
 
+    $output = "<div class=\"slideshow clear\">\n";
     $output .= "<div class=\"slider swipe\">\n";
-    // $output .= "<ul class=\"swipe-wrap\">\n";
     foreach ($attachments as $id => $attachment) {
         $img = wp_get_attachment_image_src($id, 'full');
         $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
     }
-    // $output .= "</ul>\n";
+    $output .= "</div>\n";
     $output .= "</div>\n";
 
-    // $output .= "<div class=\"thumbnails\">\n";
-    // $output .= "<ul class=\"thumb-wrap\">\n";
-    // foreach ($attachments as $id => $attachment) {
-    //     $thumb = wp_get_attachment_image_src($id, 'small');
-    //     $output .= "<li class=\"thumb\"><img src=\"{$thumb[0]}\" alt=\"\" /></li>";
-    // }
-    // $output .= "</ul>\n";
-    // $output .= "</div>\n";
-    //$output .= "<nav class=\"ss-nav\"><button class=\"prev\">back</button><button class=\"next\">forward</button></nav>\n";
-    $output .= "</div>\n";
+    $category = get_the_category($post->ID);
+
+    $output .= '<header class="entry-header"><b class="category">' . $category[0]->cat_name . '</b><time class="entry-date" datetime="' . esc_attr( get_the_date( 'c', $post->ID) ) . '">' . get_the_date('', $post->ID) . '</time>';
+    $output .= '<h2 class="entry-title"><a href="' . get_permalink($post->ID) . '" rel="bookmark">' . get_the_title($post->ID) . '</a></h2></header>';
 
     return $output;
 }
@@ -450,6 +442,7 @@ add_filter('post_gallery', 'my_post_gallery', 10, 2);
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
+//remove_filter('the_content', 'wpautop');
 
 // Shortcodes
 add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.

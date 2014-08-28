@@ -3,21 +3,12 @@
 	<main role="main">
 		<!-- section -->
 		<section>
-
-			<h1><?php the_title(); ?></h1>
-
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
 			<!-- article -->
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php the_content(); ?>
-
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
 
 			</article>
 			<!-- /article -->
@@ -36,10 +27,19 @@
 
 		<?php endif; ?>
 
+		<nav class="nav-footer">
+			<div class="nav-previous">
+				<b>Previous Post</b>
+				<h3><?php previous_post_link('%link'); ?></h3>
+			</div>
+			<div class="nav-next">
+				<b>Next Post</b>
+				<h3><?php next_post_link('%link'); ?></h3>
+			</div>
+		</nav>
+
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
