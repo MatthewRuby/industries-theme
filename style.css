@@ -778,7 +778,13 @@ iframe {
     padding: 0;
 }
 
-
+.slideshow {
+    overflow: hidden;
+    visibility: hidden;
+}
+.slideshow.visible {
+    visibility: visible;
+}
 .slideshow .slide {
     padding: 0 20px;
 }
@@ -794,6 +800,23 @@ iframe {
     width: 100%;
 }
 
+.format-video .entry-content iframe {
+    height: 0;
+    padding-bottom: 75%;
+    visibility: hidden;
+}
+.format-video .entry-content iframe.visible {
+    height: auto;
+    padding-bottom: 0;
+    visibility: visible;
+}
+.single-format-video article .entry-content {
+    margin: 0 auto;
+    max-width: none;
+}
+.single-format-video article .entry-content iframe {
+    margin-top: 0;
+}
 
 @media (max-width: 600px) {
     .single article .feature-image {
@@ -902,7 +925,8 @@ iframe {
         width: 100%;
     }
     article h1,
-    article .entry-title {
+    article .entry-title,
+    #lede article.article-0.super-lede .entry-title {
         font-size: 24px;
     }
     .single article {
@@ -914,6 +938,10 @@ iframe {
     .single article.format-gallery .body-text {
         margin: 20px auto;
         width: 85%;
+    }
+    #lede article.article-0.super-lede header,
+    #lede article.article-0.super-lede .entry-content p {
+        width: 100%;
     }
     .single .nav-footer {
         margin: 0 auto;
@@ -995,7 +1023,7 @@ iframe {
 /* Slider */
 .slick-slider { position: relative; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -ms-touch-action: none; -webkit-tap-highlight-color: transparent; }
 
-.slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
+.slick-list { position: relative; /*overflow: hidden;*/ display: block; margin: 0; padding: 0; }
 .slick-list:focus { outline: none; }
 .slick-loading .slick-list { background: white url("img/ajax-loader.gif") center center no-repeat; }
 .slick-list.dragging { cursor: pointer; cursor: hand; }

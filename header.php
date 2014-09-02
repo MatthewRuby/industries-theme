@@ -12,6 +12,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
+<script type="text/javascript">
+  var ShopifyStoreConfig = {shop:"ass-industries.myshopify.com", collections:[26731467]};
+  (function() {
+    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+    s.src = "//widgets.shopifyapps.com/assets/shopifystore.js";
+    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+  })();
+</script>
+<noscript>Please enable javascript, or <a href="http://ass-industries.myshopify.com">click here</a> to visit my <a href="http://www.shopify.com/tour/ecommerce-website">ecommerce web site</a> powered by Shopify.</noscript>
+
+
 		<?php wp_head(); ?>
 
 	</head>
