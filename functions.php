@@ -376,12 +376,21 @@ function my_post_gallery($output, $attr) {
 
 
     $output = "<div class=\"slideshow clear\">\n";
-    $output .= "<div class=\"slider swipe\">\n";
+
+    $output .= "<div class=\"slider slider-for\">\n";
     foreach ($attachments as $id => $attachment) {
         $img = wp_get_attachment_image_src($id, 'full');
         $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
     }
     $output .= "</div>\n";
+
+    $output .= "<div class=\"slider slider-nav\">\n";
+    foreach ($attachments as $id => $attachment) {
+        $img = wp_get_attachment_image_src($id, 'medium');
+        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
+    }
+    $output .= "</div>\n";
+
     $output .= "</div>\n";
 
     $category = get_the_category($post->ID);

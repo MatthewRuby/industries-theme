@@ -67,29 +67,24 @@ var swipes = [];
         function gallerySetup(w, h, callback){
 
             var ss = $('.slideshow');
-
             for (var i = ss.length - 1; i >= 0; i--) {
 
-                var ssW = $(ss[i]).parent().width(),
-                    padding = Math.floor(ssW/10);
-
-                // console.log(ssW + "  " + padding);
-
-                if( winWidth < 720 ) {
-                    $(ss[i]).find('.slider').slick({
-                        centerMode: true,
-                        centerPadding: '40px',
-                        slidesToShow: 1
-                    });
-
-                } else {
-                    $(ss[i]).find('.slider').slick({
-                        centerMode: true,
-                        centerPadding: '120px',
-                        slidesToShow: 1
-                    });
-
-                }
+                $(ss[i]).find('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    fade: true,
+                    asNavFor: $(ss[i]).find('.slider-nav')
+                });
+                $(ss[i]).find('.slider-nav').slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: $(ss[i]).find('.slider-for'),
+                    dots: false,
+                    centerMode: true,
+                    focusOnSelect: true,
+                    arrows: false
+                });
 
                 $(ss[i]).addClass('visible');
 

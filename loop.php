@@ -26,6 +26,7 @@
 
 				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
 					<div class="feature-image">
+						<a href="<?php the_permalink(); ?>" rel="bookmark">
 					<?php if( is_sticky() && ( get_post_format( $post_id ) == 'image' || get_post_format( $post_id ) == 'video' ) ) :
 						the_post_thumbnail('full');
 					elseif(get_post_format( $post_id ) == 'image'):
@@ -33,6 +34,7 @@
 					else:
 						the_post_thumbnail('medium');
 					endif; ?>
+						</a>
 					</div>
 				<?php endif; ?>
 
@@ -65,10 +67,22 @@
 
 				<?php else : ?>
 
-					<div class="entry-content">
-						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
-					</div><!-- .entry-content -->
+					<?php if( $index > 0 && $index < $end) : ?>
+
+						<div class="entry-content">
+							<a href="<?php the_permalink(); ?>" rel="bookmark">
+								<?php the_excerpt(); ?>
+							</a>
+						</div><!-- .entry-content -->
+
+					<?php else: ?>
+
+						<div class="entry-content">
+							<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+							<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
+						</div><!-- .entry-content -->
+
+					<?php endif; ?>
 
 				<?php endif; ?>
 
