@@ -377,13 +377,15 @@ function my_post_gallery($output, $attr) {
 
     if (empty($attachments)) return '';
 
-
     $output = "<div class=\"slideshow clear\">\n";
 
     $output .= "<div class=\"slider slider-for\">\n";
     foreach ($attachments as $id => $attachment) {
         $img = wp_get_attachment_image_src($id, 'full');
-        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
+        $caption = $attachment->post_excerpt;
+        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" />";
+         if($caption) { $output .= "<div class=\"caption\">{$caption}</div>"; }
+        $output .= "</div>";
     }
     $output .= "</div>\n";
 

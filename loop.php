@@ -74,7 +74,7 @@
 			<div class="article-wrap clear">
 
 
-				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
+				<?php if ( has_post_thumbnail() && get_post_format( $post_id ) != 'gallery') : // Check if Thumbnail exists ?>
 					<div class="feature-image">
 						<a href="<?php the_permalink(); ?>" rel="bookmark">
 					<?php if( is_sticky() && ( get_post_format( $post_id ) == 'image' || get_post_format( $post_id ) == 'video' ) ) :
