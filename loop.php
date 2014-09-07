@@ -1,30 +1,71 @@
 <?php
 	$index = 0;
-	$end = 3;
 	$isSuper = false;
+?>
+	<div class="top-area clear">
+		<div id="products">
+			<header class="section-header">
+				<h3>Featured Products</h3>
+			</header>
+			<?php $my_query = new WP_Query( 'category_name=products' );
+			$productIndex = 0;
+			while ( $my_query->have_posts() ) : $my_query->the_post();
+				$do_not_duplicate = $post->ID; ?>
 
-//	$products = query_posts( array ( 'category_name' => 'products', 'posts_per_page' => -1 ) );
-	// echo $products[0];
+				<article id="post-<?php the_ID(); ?>" class="product product-<?php echo $productIndex ?>">
+					<div class="article-wrap clear">
+						<?php if ( has_post_thumbnail()) :
+							the_post_thumbnail('medium');
+						endif; ?>
+						<header class="entry-header">
+							<h2 class="entry-title">
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+							</h2>
+						</header>
+						<div class="entry-content">
+							<?php the_excerpt(); ?>
+						</div><!-- .entry-content -->
+					</div>
+				</article>
+			<?php $productIndex++; endwhile; ?>
+		</div>
 
-
-	if (have_posts()): while (have_posts()) : the_post(); $extraClass = "article-".$index;
+	<?php if (have_posts()): while (have_posts()) : the_post();
+		if ( $post->ID == $do_not_duplicate ) continue;
+		$extraClass = "article-".$index;
 
 		if( $index == 0):
 
-			if(is_sticky() && (get_post_format( $post_id ) == 'image' || get_post_format( $post_id ) == 'gallery' || get_post_format( $post_id ) == 'video') ) :
-				$end = 1; $extraClass .= ' super-lede'; $isSuper = true;
+			if(is_sticky() && (get_post_format( $post_id ) == 'image' ||
+				 			   get_post_format( $post_id ) == 'gallery' ||
+				 			   get_post_format( $post_id ) == 'video') ) :
+
+				$extraClass .= ' super-lede';
+				$isSuper = true;
 			?>
-					<section id="lede" class="wide clear">
+				<section id="lede" class="wide clear">
+
 			<?php else: ?>
 
 				<section id="lede" class="clear">
 			<?php endif;
 		endif;
 
-		if ( $index == $end ) : ?>
-			</section><!--  CLOSE LEDE -->
+		if ( $index == 1 ) : ?>
+				</section><!--  CLOSE LEDE -->
+			</div>
+
+			<div id="products-area2" class="clear">
+				<header class="section-header">
+					<h3>Products</h3>
+				</header>
+			</div>
+
 			<div class="feed-wrap clear"><!--  OPEN .feed-wrap -->
-				<section id="feed"><!--  OPEN #feed -->
+				<section id="feed">
+					<header class="section-header">
+						<h3>Newsfeed</h3>
+					</header><!--  OPEN #feed -->
 		<?php endif; ?>
 
 

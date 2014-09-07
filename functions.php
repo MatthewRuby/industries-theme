@@ -65,26 +65,30 @@ if (function_exists('add_theme_support'))
 // HTML5 Blank navigation
 function html5blank_nav()
 {
+
+    $share = '<li class="menu-item facebook"><div class="fb-like" data-href="http://assindustries.com/" data-width="100px" data-layout="button" data-action="like" data-show-faces="false"></div></li>';
+    $share .= '<li class="menu-item instagram"><a href="http://instagram.com/assindustries?ref=badge" class="ig-b- ig-b-24"><img src="//badges.instagram.com/static/images/ig-badge-24.png" alt="Instagram" /></a></li>';
 	wp_nav_menu(
-	array(
-		'theme_location'  => 'header-menu',
-		'menu'            => '',
-		'container'       => 'div',
-		'container_class' => 'menu-{menu slug}-container',
-		'container_id'    => '',
-		'menu_class'      => 'menu',
-		'menu_id'         => '',
-		'echo'            => true,
-		'fallback_cb'     => 'wp_page_menu',
-		'before'          => '',
-		'after'           => '',
-		'link_before'     => '',
-		'link_after'      => '',
-		'items_wrap'      => '<ul>%3$s</ul>',
-		'depth'           => 0,
-		'walker'          => ''
-		)
+    	array(
+    		'theme_location'  => 'header-menu',
+    		'menu'            => '',
+    		'container'       => 'div',
+    		'container_class' => 'menu-{menu slug}-container',
+    		'container_id'    => '',
+    		'menu_class'      => 'menu',
+    		'menu_id'         => 'main-menu',
+    		'echo'            => true,
+    		'fallback_cb'     => 'wp_page_menu',
+    		'before'          => '',
+    		'after'           => '',
+    		'link_before'     => '',
+    		'link_after'      => '',
+    		'items_wrap'      => '<ul>%3$s' . $share . '</ul>',
+    		'depth'           => 0,
+    		'walker'          => ''
+    		)
 	);
+
 }
 
 // Load HTML5 Blank scripts (header.php)

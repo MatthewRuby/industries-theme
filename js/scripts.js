@@ -8,18 +8,28 @@
 
         gallerySetup();
         videoSetup();
-        sidebarSetup();
+        // sidebarSetup();
+        productsSetup();
         navSetup();
 
-        $(window).on('resize', function(){
+        $(window).smartresize(function(){
             winHeight = $(window).height(),
             winWidth = $(window).width();
 
             gallerySetup();
             videoSetup();
-            sidebarSetup();
+            // sidebarSetup();
             navSetup();
         });
+
+        function productsSetup(){
+            var products = $('#products .product'),
+                begin = 2;
+            if( $('.super-lede').length > 0 ) begin = 0;
+            for(var i = 2; i < products.length; i++){
+                $('#products-area2').append( $( products[i] ) );
+            }
+        }
 
         function sidebarSetup(){
             if( $('.super-lede').length ) return;
@@ -99,6 +109,35 @@
         }
 
 	});
+
+
+    (function($,sr){
+
+      // debouncing function from John Hann
+      // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+      var debounce = function (func, threshold, execAsap) {
+          var timeout;
+
+          return function debounced () {
+              var obj = this, args = arguments;
+              function delayed () {
+                  if (!execAsap)
+                      func.apply(obj, args);
+                  timeout = null;
+              };
+
+              if (timeout)
+                  clearTimeout(timeout);
+              else if (execAsap)
+                  func.apply(obj, args);
+
+              timeout = setTimeout(delayed, threshold || 100);
+          };
+      }
+      // smartresize
+      jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+    })(jQuery,'smartresize');
 
 })(jQuery, this);
 

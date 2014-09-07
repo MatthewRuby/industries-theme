@@ -12,19 +12,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
-<script type="text/javascript">
-  var ShopifyStoreConfig = {shop:"ass-industries.myshopify.com", collections:[26731467]};
-  (function() {
-    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
-    s.src = "//widgets.shopifyapps.com/assets/shopifystore.js";
-    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-  })();
-</script>
-<noscript>Please enable javascript, or <a href="http://ass-industries.myshopify.com">click here</a> to visit my <a href="http://www.shopify.com/tour/ecommerce-website">ecommerce web site</a> powered by Shopify.</noscript>
-
-
 		<?php wp_head(); ?>
 
+        <style>.ig-b- { display: inline-block; }
+            .ig-b- img { visibility: hidden; }
+            .ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+            .ig-b-24 { width: 24px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-sprite-24.png) no-repeat 0 0; }
+            @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+            .ig-b-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-sprite-24@2x.png); background-size: 60px 178px; } }
+        </style>
 	</head>
 	<body <?php body_class(); ?>>
 
@@ -79,21 +75,8 @@
 					<!-- nav -->
 					<nav class="nav" role="navigation">
 						<?php html5blank_nav(); ?>
-
-                        <div class="social">
-                            <div class="fb-like" data-href="http://assindustries.com/" data-width="100px" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
-                            <style>.ig-b- { display: inline-block; }
-                                .ig-b- img { visibility: hidden; }
-                                .ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
-                                .ig-b-24 { width: 24px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-sprite-24.png) no-repeat 0 0; }
-                                @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-                                .ig-b-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-sprite-24@2x.png); background-size: 60px 178px; } }</style>
-                                <a href="http://instagram.com/assindustries?ref=badge" class="ig-b- ig-b-24"><img src="//badges.instagram.com/static/images/ig-badge-24.png" alt="Instagram" /></a>
-                        </div>
-
 					</nav>
 					<!-- /nav -->
-
 
                 </div>
 			</header>
