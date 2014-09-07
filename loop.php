@@ -1,18 +1,27 @@
-<?php $index = 0; $end = 3; $isSuper = false; ?>
+<?php
+	$index = 0;
+	$end = 3;
+	$isSuper = false;
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); $extraClass = "article-".$index; ?>
+//	$products = query_posts( array ( 'category_name' => 'products', 'posts_per_page' => -1 ) );
+	// echo $products[0];
 
-		<?php if( $index == 0):
+
+	if (have_posts()): while (have_posts()) : the_post(); $extraClass = "article-".$index;
+
+		if( $index == 0):
+
 			if(is_sticky() && (get_post_format( $post_id ) == 'image' || get_post_format( $post_id ) == 'gallery' || get_post_format( $post_id ) == 'video') ) :
 				$end = 1; $extraClass .= ' super-lede'; $isSuper = true;
 			?>
-				<section id="lede" class="wide clear">
+					<section id="lede" class="wide clear">
 			<?php else: ?>
-				<section id="lede" class="clear">
-			<?php endif; ?>
-		<?php endif; ?>
 
-		<?php if ( $index == $end ) : ?>
+				<section id="lede" class="clear">
+			<?php endif;
+		endif;
+
+		if ( $index == $end ) : ?>
 			</section><!--  CLOSE LEDE -->
 			<div class="feed-wrap clear"><!--  OPEN .feed-wrap -->
 				<section id="feed"><!--  OPEN #feed -->
@@ -21,7 +30,7 @@
 
 		<article id="post-<?php the_ID(); ?>" class="<?php foreach(get_post_class(array($extraClass), the_ID() ) as $c){ echo $c . " "; }; ?>">
 
-			<div class="article-wrap">
+			<div class="article-wrap clear">
 
 
 				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
@@ -41,21 +50,27 @@
 
 				<?php if( $index < $end) : ?>
 
-					<?php if( !$isSuper ) : ?>
-					<header class="entry-header">
-						<h2 class="entry-title">
-							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-						</h2>
-					</header><!-- .entry-header -->
+					<?php if( !$isSuper && get_post_format( $post_id ) != 'gallery' ) : ?>
+
+						<header class="entry-header">
+							<h2 class="entry-title">
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+							</h2>
+						</header>
+
 					<?php endif; ?>
 
 				<?php else: ?>
-					<header class="entry-header">
-						<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
-						<h2 class="entry-title">
-							<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-						</h2>
-					</header><!-- .entry-header -->
+					<?php if( $index > $end || ($index < $end && get_post_format( $post_id ) != 'gallery') ) : ?>
+
+						<header class="entry-header">
+							<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
+							<h2 class="entry-title">
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+							</h2>
+						</header>
+
+					<?php endif; ?>
 				<?php endif; ?>
 
 

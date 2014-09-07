@@ -30,7 +30,6 @@ if (function_exists('add_theme_support'))
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     add_theme_support( 'post-formats', array( 'image', 'gallery', 'video' ) );
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
@@ -386,7 +385,7 @@ function my_post_gallery($output, $attr) {
 
     $output .= "<div class=\"slider slider-nav\">\n";
     foreach ($attachments as $id => $attachment) {
-        $img = wp_get_attachment_image_src($id, 'medium');
+        $img = wp_get_attachment_image_src($id);
         $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
     }
     $output .= "</div>\n";

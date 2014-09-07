@@ -28,6 +28,15 @@
 	</head>
 	<body <?php body_class(); ?>>
 
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=903936332953317&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
 		<!-- wrapper -->
 		<div class="wrapper">
 
@@ -70,8 +79,22 @@
 					<!-- nav -->
 					<nav class="nav" role="navigation">
 						<?php html5blank_nav(); ?>
+
+                        <div class="social">
+                            <div class="fb-like" data-href="http://assindustries.com/" data-width="100px" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+                            <style>.ig-b- { display: inline-block; }
+                                .ig-b- img { visibility: hidden; }
+                                .ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
+                                .ig-b-24 { width: 24px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-sprite-24.png) no-repeat 0 0; }
+                                @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+                                .ig-b-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-sprite-24@2x.png); background-size: 60px 178px; } }</style>
+                                <a href="http://instagram.com/assindustries?ref=badge" class="ig-b- ig-b-24"><img src="//badges.instagram.com/static/images/ig-badge-24.png" alt="Instagram" /></a>
+                        </div>
+
 					</nav>
 					<!-- /nav -->
+
+
                 </div>
 			</header>
 			<!-- /header -->
