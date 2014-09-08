@@ -879,11 +879,11 @@ article .share-tool.facebook {
     line-height: 1;
     margin: 0 auto;
     text-align: center;
-  text-shadow:
+/*  text-shadow:
    -1px -1px 0 #ccc,
     1px -1px 0 #ccc,
     -1px 1px 0 #ccc,
-     1px 1px 0 #ccc;
+     1px 1px 0 #ccc;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
     font-smoothing: antialiased;
@@ -1212,6 +1212,7 @@ article .share-tool.facebook {
     }
     .wax-chart,
     .wax-pour {
+        display: block;
         float: none;
         margin: 20px auto;
         width: 80%;

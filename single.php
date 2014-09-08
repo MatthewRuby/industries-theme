@@ -17,15 +17,27 @@
 	<?php endif; ?>
 
 		<nav class="nav-footer">
-			<div class="nav-previous">
-				<b>Previous Post</b>
-				<h3><?php previous_post_link('%link'); ?></h3>
-			</div>
-			<div class="nav-next">
-				<b>Next Post</b>
-				<h3><?php next_post_link('%link'); ?></h3>
-			</div>
-		</nav>
+            <?php if( get_previous_post() ) : ?>
+                <div class="nav-previous">
+                    <b>Previous Post</b>
+                    <h3><?php previous_post_link('%link'); ?></h3>
+                </div>
+            <?php else: ?>
+	            <div class="nav-next">
+	                <h3><a href="/">Home</a></h3>
+	            </div>
+            <?php endif; ?>
+            <?php if( get_next_post() ) : ?>
+	            <div class="nav-next">
+	                <b>Next Post</b>
+	                <h3><?php next_post_link('%link'); ?></h3>
+	            </div>
+            <?php else: ?>
+	            <div class="nav-next">
+	                <h3><a href="/">Home</a></h3>
+	            </div>
+            <?php endif; ?>
+        </nav>
 
 	</main>
 

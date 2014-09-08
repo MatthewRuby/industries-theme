@@ -62,14 +62,26 @@
 
 
         <nav class="nav-footer">
-            <div class="nav-previous">
-                <b>Previous Page</b>
-                <h3><?php previous_post_link('%link'); ?></h3>
-            </div>
-            <div class="nav-next">
-                <b>Next Page</b>
-                <h3><?php next_post_link('%link'); ?></h3>
-            </div>
+            <?php if( get_previous_post() ) : ?>
+                <div class="nav-previous">
+                    <b>Previous Page</b>
+                    <h3><?php previous_post_link('%link'); ?></h3>
+                </div>
+            <?php else: ?>
+                <div class="nav-next">
+                    <h3><a href="/">Home</a></h3>
+                </div>
+            <?php endif; ?>
+            <?php if( get_next_post() ) : ?>
+                <div class="nav-next">
+                    <b>Next Page</b>
+                    <h3><?php next_post_link('%link'); ?></h3>
+                </div>
+            <?php else: ?>
+                <div class="nav-next">
+                    <h3><a href="/">Home</a></h3>
+                </div>
+            <?php endif; ?>
         </nav>
 
         </section>
