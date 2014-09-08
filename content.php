@@ -20,7 +20,7 @@
 
 
     <footer class="entry-meta">
-        <b class="category"><?php the_category('single'); ?></b>
+        <b class="category"><?php the_category(' '); ?></b>
         <time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
 <!--         <ul class="feed-share-tools">
             <li class="share-tool facebook">

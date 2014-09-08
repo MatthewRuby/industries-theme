@@ -106,7 +106,7 @@
 					<?php if( $index > $end || ($index < $end && get_post_format( $post_id ) != 'gallery') ) : ?>
 
 						<header class="entry-header">
-							<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
+							<b class="category"><?php the_category(' '); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
 							<h2 class="entry-title">
 								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 							</h2>
@@ -146,7 +146,7 @@
 
 				<footer class="entry-meta">
 					<?php if( $index < $end ) : ?>
-						<b class="category"><?php the_category('single'); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
+						<b class="category"><?php the_category(' '); ?></b><time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo get_the_date(); ?></time>
 					<?php endif; ?>
 
 <!-- 					<ul class="feed-share-tools">
