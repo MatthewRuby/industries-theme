@@ -1,6 +1,7 @@
 <?php
 	$index = 0;
 	$isSuper = false;
+	$do_not_duplicate = array();
 ?>
 	<div class="top-area clear">
 		<div id="products">
@@ -10,7 +11,7 @@
 			<?php $my_query = new WP_Query( 'category_name=products' );
 			$productIndex = 0;
 			while ( $my_query->have_posts() ) : $my_query->the_post();
-				$do_not_duplicate = $post->ID; ?>
+				$do_not_duplicate[$post->ID] = true ?>
 
 				<article id="post-<?php the_ID(); ?>" class="product product-<?php echo $productIndex ?>">
 					<div class="article-wrap clear">
@@ -31,7 +32,7 @@
 		</div>
 
 	<?php if (have_posts()): while (have_posts()) : the_post();
-		if ( $post->ID == $do_not_duplicate ) continue;
+		if ( $do_not_duplicate[$post->ID] == true ) continue;
 		$extraClass = "article-".$index;
 
 		if( $index == 0):
@@ -175,7 +176,7 @@
 
 	<?php endif; ?>
 
-		<?php get_template_part('pagination'); ?>
+<!-- 		<?php get_template_part('pagination'); ?> -->
 
 		</section><!--  CLOSE #feed -->
 

@@ -27,7 +27,7 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
+    add_image_size('large', 900, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
 
@@ -66,8 +66,8 @@ if (function_exists('add_theme_support'))
 function html5blank_nav()
 {
 
-    $share = '<li class="menu-item facebook"><div class="fb-like" data-href="http://assindustries.com/" data-width="100px" data-layout="button" data-action="like" data-show-faces="false"></div></li>';
-    $share .= '<li class="menu-item instagram"><a href="http://instagram.com/assindustries?ref=badge" class="ig-b- ig-b-24"><img src="//badges.instagram.com/static/images/ig-badge-24.png" alt="Instagram" /></a></li>';
+    //$share = '<li class="menu-item facebook"><div class="fb-like" data-href="http://assindustries.com/" data-width="100px" data-layout="button" data-action="like" data-show-faces="false"></div></li>';
+    //$share .= '<li class="menu-item instagram"><a href="http://instagram.com/assindustries?ref=badge" class="ig-b- ig-b-24"><img src="//badges.instagram.com/static/images/ig-badge-24.png" alt="Instagram" /></a></li>';
 	wp_nav_menu(
     	array(
     		'theme_location'  => 'header-menu',
@@ -102,7 +102,7 @@ function html5blank_header_scripts()
      //    wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
      //    wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js?kjdbcjcnljejljeflj', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
     }
 }
@@ -212,14 +212,14 @@ function my_remove_recent_comments_style()
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
 function html5wp_pagination()
 {
-    global $wp_query;
-    $big = 999999999;
-    echo paginate_links(array(
-        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
-        'format' => '?paged=%#%',
-        'current' => max(1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages
-    ));
+    // global $wp_query;
+    // $big = 999999999;
+    // echo paginate_links(array(
+    //     'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+    //     'format' => '?paged=%#%',
+    //     'current' => max(1, get_query_var('paged')),
+    //     'total' => $wp_query->max_num_pages
+    // ));
 }
 
 // Custom Excerpts
@@ -381,9 +381,9 @@ function my_post_gallery($output, $attr) {
 
     $output .= "<div class=\"slider slider-for\">\n";
     foreach ($attachments as $id => $attachment) {
-        $img = wp_get_attachment_image_src($id, 'full');
+        $img = wp_get_attachment_image_src($id, 'large');
         $caption = $attachment->post_excerpt;
-        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" />";
+        $output .= "<div class=\"slide\"><img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==\" data-src=\"{$img[0]}\" alt=\"\" />";
          if($caption) { $output .= "<div class=\"caption\">{$caption}</div>"; }
         $output .= "</div>";
     }
@@ -392,7 +392,7 @@ function my_post_gallery($output, $attr) {
     $output .= "<div class=\"slider slider-nav\">\n";
     foreach ($attachments as $id => $attachment) {
         $img = wp_get_attachment_image_src($id);
-        $output .= "<div class=\"slide\"><img src=\"{$img[0]}\" alt=\"\" /></div>";
+        $output .= "<div class=\"slide\"><img src=\"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==\" data-src=\"{$img[0]}\" alt=\"\" /></div>";
     }
     $output .= "</div>\n";
 
